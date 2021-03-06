@@ -53,8 +53,8 @@ artifacts.archives(tasks.shadowJar)
 tasks.shadowJar {
     archiveFileName.set(rootProject.name + ".jar")
     from("LICENSE").rename("LICENSE", "license.txt")
-    relocate("org.koin", "com.github.secretx33.dependencies.koin")
-    relocate("kotlin", "com.github.secretx33.dependencies.kotlin")
+    relocate("org.koin", "${project.group}.dependencies.koin")
+    relocate("kotlin", "${project.group}.dependencies.kotlin")
     // These ** tells Gradle to exclude that folder and everything inside it from being shadowed into the jar
     exclude("org/intellij/**")
     exclude("org/jetbrains/**")
