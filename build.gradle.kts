@@ -66,8 +66,6 @@ tasks.register("customCleanUp", Delete::class){
 }
 tasks.shadowJar.get().dependsOn(tasks["customCleanUp"])
 
-tasks.test { useJUnitPlatform() }
-
 tasks.withType<JavaCompile> { options.encoding = "UTF-8" }
 
 tasks.withType<KotlinCompile> { kotlinOptions.jvmTarget = "1.8" }
