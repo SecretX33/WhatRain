@@ -1,6 +1,8 @@
 package com.github.secretx33.whatrain
 
 import com.github.secretx33.whatrain.events.NoRainEvent
+import com.github.secretx33.whatrain.utils.VersionUtils.serverVersion
+import com.github.secretx33.whatrain.utils.VersionUtils.v1_12_2_R01
 import com.github.secretx33.whatrain.utils.gameRule
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
@@ -33,11 +35,15 @@ class Main : JavaPlugin(), KoinComponent {
                 it.gameRule("doDaylightCycle", false)
             if(config.getBoolean("disable-weather-cycle"))
                 it.gameRule("doWeatherCycle", false)
+            if(config.getBoolean("enable-keep-inventory"))
+                it.gameRule("keepInventory", true)
+            if(config.getBoolean("run-time-set-zero"))
+                it.time = 0
         }
-        if(config.getBoolean("set-default-gamemode-to-creative"))
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "defaultgamemode creative")
-        if(config.getBoolean("run-time-set-zero"))
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "time set 0")
+        if(serverVersion.isHigherThan(v1_12_2_R01)) {
+            if(config.getBoolean("set-default-gamemode-to-creative"))
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "defaultgamemode creative")
+        }
         if(config.getBoolean("display-loaded-msg"))
             server.consoleSender.sendMessage("${ChatColor.BLUE}[NoMoreRain]${ChatColor.GRAY} Loaded")
     }

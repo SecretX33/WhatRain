@@ -12,6 +12,7 @@ fun World.gameRule(property: String, value: Boolean){
         when(property) {
             "doDaylightCycle" -> setGameRule(GameRule.DO_DAYLIGHT_CYCLE, value)
             "doWeatherCycleCycle" -> setGameRule(GameRule.DO_WEATHER_CYCLE, value)
+            "keepInventory" -> setGameRule(GameRule.KEEP_INVENTORY, value)
         }
     }
 }
