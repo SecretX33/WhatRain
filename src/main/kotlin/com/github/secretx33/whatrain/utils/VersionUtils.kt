@@ -4,6 +4,7 @@ import com.google.common.base.Objects
 import org.bukkit.Bukkit
 import java.util.regex.Pattern
 
+// "object" from kotlin is literally a (function in a similar way to) singleton/static class, you can use its properties everywhere by calling "VersionUtils.<field/method>" or you just import the object and call it directly e.g. "serverVersion < v1_12_2_R01"
 object VersionUtils {
     // Version Util (from EssentialsX)
     val v1_8_8_R01  = BukkitVersion.fromString("1.8.8-R0.1-SNAPSHOT")
@@ -23,7 +24,7 @@ object VersionUtils {
     val v1_16_1_R01 = BukkitVersion.fromString("1.16.1-R0.1-SNAPSHOT")
     val v1_16_5_R01 = BukkitVersion.fromString("1.16.5-R0.1-SNAPSHOT")
 
-    val nmsVersion: String by lazy {
+    val nmsVersion: String = run {
         val name = Bukkit.getServer().javaClass.name
         val parts = name.split("\\.").toTypedArray()
         if (parts.size > 3) {

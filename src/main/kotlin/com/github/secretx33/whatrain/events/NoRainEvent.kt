@@ -9,6 +9,7 @@ import org.bukkit.plugin.Plugin
 
 class NoRainEvent(plugin: Plugin) : Listener {
 
+    // Will automatically register "NoRainEvent" class to automatically begins listening for the events inside it, once someone instantiate it
     init { Bukkit.getPluginManager().registerEvents(this, plugin) }
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)

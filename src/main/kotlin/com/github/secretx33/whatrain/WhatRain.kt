@@ -21,13 +21,18 @@ class WhatRain : JavaPlugin(), KoinComponent {
 
     override fun onEnable() {
         saveDefaultConfig()
+        // Our dependency injection library
         startKoin {
+            // Makes Koin only print error messages
             printLogger(Level.ERROR)
             modules(module {
+                // Tells Koin to provide "this@WhatRain" object (our main class) if someone asks for "Plugin" or for "JavaPlugin"
                 single<Plugin> { this@WhatRain } bind JavaPlugin::class
             })
         }
         if(config.getBoolean("enable-rain-cancel-eventlistener")) {
+            // This "get" will tell Koin to inject our Plugin dependency here, get is NOT lazy, the instantiation and injection happens the moment you call "get" (opposed to "inject" which is lazy and will only create/inject the dependency when you use it for the first time)
+            // Anyway you cannot use inject here because you need to provide the dependency to instantiate the NoRainEvent class (it's required by the constructor)
             NoRainEvent(get())
         }
         Bukkit.getWorlds().forEach {

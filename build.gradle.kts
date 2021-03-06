@@ -55,6 +55,7 @@ tasks.shadowJar {
     from("LICENSE").rename("LICENSE", "license.txt")
     relocate("org.koin", "com.github.secretx33.dependencies.koin")
     relocate("kotlin", "com.github.secretx33.dependencies.kotlin")
+    // These ** tells Gradle to exclude that folder and everything inside it from being shadowed into the jar
     exclude("org/intellij/**")
     exclude("org/jetbrains/**")
     exclude("META-INF/**")
