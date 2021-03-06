@@ -1,6 +1,6 @@
 name: ${name}
 version: ${version}
-main: com.github.secretx33.whatrain.Main
+main: com.github.secretx33.whatrain.WhatRain
 api-version: 1.13
 authors: [SecretX]
 description: Prevents rain from occuring.

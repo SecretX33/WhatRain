@@ -30,7 +30,7 @@ object VersionUtils {
             parts[3]
         } else ""
     }
-    val serverVersion by lazy { BukkitVersion.fromString(Bukkit.getServer().bukkitVersion) }
+    val serverVersion = BukkitVersion.fromString(Bukkit.getServer().bukkitVersion)
 
     class BukkitVersion private constructor(
         val major: Int,
@@ -119,19 +119,13 @@ object VersionUtils {
                 )
             }
 
-            private fun from(
-                major: String,
-                minor: String,
-                patch: String?,
-                revision: String?,
-                prerelease: String?
-            ): BukkitVersion {
+            private fun from(major: String, minor: String, patch: String?, revision: String?, prerelease: String?): BukkitVersion {
                 var patch = patch
                 var revision = revision
                 var prerelease = prerelease
-                if (patch == null || patch.isEmpty()) patch = "0"
-                if (revision == null || revision.isEmpty()) revision = "0"
-                if (prerelease == null || prerelease.isEmpty()) prerelease = "-1"
+                if(patch == null || patch.isEmpty()) patch = "0"
+                if(revision == null || revision.isEmpty()) revision = "0"
+                if(prerelease == null || prerelease.isEmpty()) prerelease = "-1"
                 return BukkitVersion(
                     major.toInt(),
                     minor.toInt(),

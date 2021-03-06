@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.github.secretx33"
-version = "1.0"
+version = "1.0.1"
 
 repositories {
     jcenter()
@@ -52,6 +52,7 @@ artifacts.archives(tasks.shadowJar)
 
 tasks.shadowJar {
     archiveFileName.set(rootProject.name + ".jar")
+    from("LICENSE").rename("LICENSE", "license.txt")
     relocate("org.koin", "com.github.secretx33.dependencies.koin")
     relocate("kotlin", "com.github.secretx33.dependencies.kotlin")
     exclude("org/intellij/**")

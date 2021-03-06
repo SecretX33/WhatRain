@@ -12,23 +12,23 @@ import org.koin.core.component.KoinApiExtension
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.get
 import org.koin.core.context.startKoin
+import org.koin.core.logger.Level
 import org.koin.dsl.bind
 import org.koin.dsl.module
 
 @KoinApiExtension
-class Main : JavaPlugin(), KoinComponent {
+class WhatRain : JavaPlugin(), KoinComponent {
 
     override fun onEnable() {
         saveDefaultConfig()
         startKoin {
-            printLogger()
+            printLogger(Level.ERROR)
             modules(module {
-                single<Plugin> { this@Main } bind JavaPlugin::class
+                single<Plugin> { this@WhatRain } bind JavaPlugin::class
             })
         }
-        val noRainEvent: NoRainEvent
-        if(config.getBoolean("enable-rain-cancel-eventlistener")){
-            noRainEvent = NoRainEvent(get())
+        if(config.getBoolean("enable-rain-cancel-eventlistener")) {
+            NoRainEvent(get())
         }
         Bukkit.getWorlds().forEach {
             if(config.getBoolean("disable-daylight-cycle"))
@@ -40,7 +40,7 @@ class Main : JavaPlugin(), KoinComponent {
             if(config.getBoolean("run-time-set-zero"))
                 it.time = 0
         }
-        if(serverVersion.isHigherThan(v1_12_2_R01)) {
+        if(serverVersion > v1_12_2_R01) {
             if(config.getBoolean("set-default-gamemode-to-creative"))
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "defaultgamemode creative")
         }
