@@ -13,7 +13,7 @@ Take a second glance on the source code, I've used/showed how to use (or do):
 
 * Dependency injection at its finest (Koin is such a great library)
 * The lastest Gradle KTS (kotlin domain specific language) with Shadow Jar
-* How to copy a license to inside the jar file
-* How to exclude certain folders from the shadow jar
-* How to use replace token to replace the plugin name and version in the resource files
+* Copy a license to inside the jar file
+* Exclude certain folders from the shadow jar
+* Use replace token to replace the plugin name and version in the resource files
 * And the code also include a version check for bukkit which you can easily copy and use it aswell (I got this one from EssentialsX, slighty adapted).
