@@ -1,0 +1,32 @@
+############################################################
+# +------------------------------------------------------+ #
+# |                     ${name}                      | #
+# +------------------------------------------------------+ #
+############################################################
+
+# Plugin created by SecretX (github.com/SecretX33)
+# Version ${version}
+
+# ${name} do a lot of things, like preventing rain and more, just configure it below ;)
+
+###################################################################
+## ------------------------------------------------------------- ##
+##  Applies to ALL worlds, runs EVERY TIME you open your server  ##
+## ------------------------------------------------------------- ##
+###################################################################
+
+# If true, allows the initialization of a event listener that cancels all tentatives of changing the weather to rain/storm/snowy, also, that's the only way of preventing climatic changes pre-doWeatherCycle gamerule
+enable-rain-cancel-eventlistener: true
+# Sets "doDaylightCycle" gamerule to false?
+disable-daylight-cycle: true
+# Sets "doWeatherCycle" gamerule to false?
+disable-weather-cycle: true
+# Sets "keepInventory" to true?
+enable-keep-inventory: false
+# Sets defaultgamemode to creative?
+set-default-gamemode-to-creative: true
+# Runs command "time set 0" in all worlds?
+run-time-set-zero: true
+
+## General
+display-loaded-msg: true
