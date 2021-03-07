@@ -37,7 +37,7 @@ class WhatRain : JavaPlugin(), CustomKoinComponent {
         startKoin {
             // Makes Koin only print error messages
             printLogger(Level.ERROR)
-            modules(mod)
+            loadKoinModules(mod)
         }
         if(config.getBoolean("enable-rain-cancel-eventlistener")) {
             // This "get" will tell Koin to inject our Plugin dependency here, get is NOT lazy, the instantiation and injection happens the moment you call "get" (opposed to "inject" which is lazy and will only create/inject the dependency when you use it for the first time)
