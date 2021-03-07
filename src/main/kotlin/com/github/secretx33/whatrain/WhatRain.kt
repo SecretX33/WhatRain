@@ -23,7 +23,7 @@ class WhatRain : JavaPlugin(), CustomKoinComponent {
         // 'bind' adds a second type to the object, if we didn't have it here then Koin would only provide 'this@WhatRain' if
         // someone asked specifically for a "Plugin" object
         single<Plugin> { this@WhatRain } bind JavaPlugin::class
-        // single { NoRainEvent() } // example of telling koin to use NoRainEvent as dependency, them just use get<NoRainEvent>()
+        // single { NoRainEvent() } // example of telling koin to use NoRainEvent as dependency, then just use get<NoRainEvent>()
         // in onEnable to make Koin instantiate it and you're done
         // 'single' tells Koin this is singleton, it is instantiated only ONCE and provided to ALL consumers
         // if you want to create a new object every time one asks for it, use 'factory' instead of 'single'
